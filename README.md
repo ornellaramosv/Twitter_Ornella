@@ -62,7 +62,7 @@ $ npm start
 ***POST Tweet***
 ```sh
 {
-  "content": "Post made by Orella",
+  "content": "Post made by Ornella",
   "location" : "Colombia",
   "author" : "5a64fc3fa1ff4f14b2c7e75d"
 }
