@@ -49,5 +49,24 @@ $ npm start
 * `DELETE /tweets/:id` : Delete in a jason a specific tweet in the database.
 * `DELETE /authors/:id` : Delete in a jason a specific author in the database.
 
+### Example
+***POST Author***
+```sh
+{
+  "firstname": "Ornella",
+  "lastname" : "Ramos",
+  "email" : "ornellar@uninorte.edu.co"
+}
+````
+
+***POST Tweet***
+```sh
+{
+  "content": "Post made by Orella",
+  "location" : "Colombia",
+  "author" : "5a64fc3fa1ff4f14b2c7e75d"
+}
+````
+
 **Free Software, Hell Yeah!**
 
