@@ -15,7 +15,7 @@ This is a project based on Node.js which simulates the Twitter publication syste
 
 Clone the repository
 ```sh
-$ git clone https://github.com/josuedor/Twitter_Ornella.git
+$ git clone https://github.com/ornellaramosv/Twitter_Ornella.git
 ```
 Also this project  needs to work properly:
 * [Node.js](https://nodejs.org/)
@@ -28,11 +28,7 @@ Also this project  needs to work properly:
 So you have to install the dependencies and start the server.
 
 ```sh
-$ npm install -d
-$ npm i express -S  
-$ npm i moment -S 
-$ npm i mongoose -S 
-$ npm i body-parser -S 
+$ npm install
 $ npm start
 ```
 
