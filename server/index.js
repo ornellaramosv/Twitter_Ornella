@@ -21,16 +21,18 @@ const api = require('./api/v1');
 app.use('/api', api);
 app.use('/api/v1', api);
 
+app.use('/', express.static('public/api'))
+
 app.use((req, res, next) =>{
     res.status(404);
-    res.json({
+    res.json({ 
         message: "Not found"
     });
 });
 
 app.use((err, req, res, next) =>{
     res.status(500);
-    res.json({
+    res.json({ 
         message: err.message
     });
 });
