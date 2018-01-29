@@ -1,28 +1,24 @@
 {
-  "name": "Twitter_Ornella",
+  "name": "environment",
   "version": "1.0.0",
-  "description": "Topicos Especiales",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Ornella Tatiana Ramos Velandia",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "moment": "^2.20.1",
     "mongoose": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.14.11"
+    "apidoc": "^0.17.6"
   },
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "apidoc": "apidoc -i server/api/v1/ -o public/api",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
