@@ -7,8 +7,8 @@ exports.find = (req, res, next, id) => {
                 req.doc = doc;
                 next();
             }else{
-                res.json({
-                    message: "Advertisement not found"
+                res.status(404).json({
+                    message: "Tweet not found"
                 });
             }
         })
@@ -21,16 +21,21 @@ exports.all = (req, res, next) => {
     const limit = Number(req.query.limit) || 10;
     const skip = Number(req.query.skip) || 0;
     
-    Model
+    const items = Model
         .find()
         .skip(skip)
         .limit(limit)
-        .populate('author')
-        .then( docs => {
+        .populate('author');
+    
+    const count = Model.count();
+    
+    Promise.all([items.exec(), count.exec()])
+        .then( data => {
             res.json({
-                data: docs,
+                data: data[0],
                 limit,
-                skip
+                skip,
+                count: data[1]
             })
         })
         .catch( err => {
@@ -50,6 +55,50 @@ exports.create = (req, res, next) => {
             next(new Error(err));
         });
 };
+
+/**
+ * @api {get} /tweets/:id Request Tweet information
+ * @apiName GetTweet
+ * @apiGroup Tweet
+ *
+ * @apiParam {String} id Tweet unique ID.
+ *
+ * @apiSuccess {String} _id             Unique ID of the Tweet.
+ * @apiSuccess {String} content         Content of the Tweet.
+ * @apiSuccess {String} location        Location of the Tweet.
+ * @apiSuccess {String} author          Author of the Tweet.
+ * @apiSuccess {String} createdAt       Created date of the Tweet.
+ * @apiSuccess {String} updateAt        Last update date of the Tweet.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          "_id": "5a63985872e840361145d634",
+ *          "content": "Tweet example",
+ *          "location": "Colombia",
+ *          "author": {
+ *              "_id": "5a63929672e840361145d633",
+ *              "firstname": "Ornella",
+ *              "lastname": "Ramos",
+ *              "email": "ornellar@uninorte.edu.co",
+ *              "aviable": "true",
+ *              "createdAt": "2018-01-20T19:03:50.638Z",
+ *              "updatedAt": "2018-01-20T19:03:50.638Z",
+ *              "__v": 0
+ *          },
+ *          "createdAt": "2018-01-20T19:28:24.046Z",
+ *          "updatedAt": "2018-01-20T19:28:24.046Z",
+ *          "__v": 0
+ *      },
+ *
+ * @apiError Document Not Found the id of the Tweet was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "Document Not Found"
+ *     }
+ */
 
 exports.get = (req, res, next) => {
     res.json(req.doc);
