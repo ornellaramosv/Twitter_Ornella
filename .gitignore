@@ -1,5 +1,6 @@
 .c9/
-node_modules/
 data/
+node_modules/
+public/
+.env
 mongod
-.git/
