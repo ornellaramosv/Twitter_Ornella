@@ -19,9 +19,9 @@ $ git clone https://github.com/ornellaramosv/Twitter_Ornella.git
 ```
 Also this project  needs to work properly:
 * [Node.js](https://nodejs.org/)
-* [Express](http://expressjs.com/)
-* [Moment.js](https://momentjs.com/)
-* [Mongoose.js](https://mongoosejs.com/)
+* [Express](http://expressjs.com/) 
+* [Moment.js](https://momentjs.com/) 
+* [Mongoose.js](https://mongoosejs.com/) 
 * [body-parser-json](https://www.npmjs.com/package/body-parser-json)
 * [Expressjs/cors](https://github.com/expressjs/cors)
 * [dotenv](https://www.npmjs.com/package/dotenv)
@@ -66,3 +66,4 @@ $ npm start
 ````
 
 **Free Software, Hell Yeah!**
+

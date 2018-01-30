@@ -23,6 +23,7 @@ exports.all = (req, res, next) => {
     
     const items = Model
         .find()
+        .sort({createdAt:-1})
         .skip(skip)
         .limit(limit)
         .populate('author');
